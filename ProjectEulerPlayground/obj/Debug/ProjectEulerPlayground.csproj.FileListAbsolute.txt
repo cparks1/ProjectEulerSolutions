@@ -4,3 +4,9 @@ c:\users\christopher\documents\visual studio 2015\Projects\ProjectEulerPlaygroun
 c:\users\christopher\documents\visual studio 2015\Projects\ProjectEulerPlayground\ProjectEulerPlayground\obj\Debug\ProjectEulerPlayground.csprojResolveAssemblyReference.cache
 c:\users\christopher\documents\visual studio 2015\Projects\ProjectEulerPlayground\ProjectEulerPlayground\obj\Debug\ProjectEulerPlayground.exe
 c:\users\christopher\documents\visual studio 2015\Projects\ProjectEulerPlayground\ProjectEulerPlayground\obj\Debug\ProjectEulerPlayground.pdb
+C:\Users\Christopher\Documents\Visual Studio 2015\Repos\ProjectEulerSolutions\ProjectEulerPlayground\bin\Debug\ProjectEulerPlayground.exe.config
+C:\Users\Christopher\Documents\Visual Studio 2015\Repos\ProjectEulerSolutions\ProjectEulerPlayground\obj\Debug\ProjectEulerPlayground.exe
+C:\Users\Christopher\Documents\Visual Studio 2015\Repos\ProjectEulerSolutions\ProjectEulerPlayground\obj\Debug\ProjectEulerPlayground.pdb
+C:\Users\Christopher\Documents\Visual Studio 2015\Repos\ProjectEulerSolutions\ProjectEulerPlayground\bin\Debug\ProjectEulerPlayground.exe
+C:\Users\Christopher\Documents\Visual Studio 2015\Repos\ProjectEulerSolutions\ProjectEulerPlayground\bin\Debug\ProjectEulerPlayground.pdb
+C:\Users\Christopher\Documents\Visual Studio 2015\Repos\ProjectEulerSolutions\ProjectEulerPlayground\obj\Debug\ProjectEulerPlayground.csprojResolveAssemblyReference.cache

@@ -1,7 +1,4 @@
-﻿//Rextester.Program.Main is the entry point for your code. Don't change it.
-//Compiler version 4.0.30319.17929 for Microsoft (R) .NET Framework 4.5
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -17,7 +14,7 @@ namespace ProjectEulerPlayground
         {
 
             //Console.WriteLine(EvenFibsSum(GenFibs()));
-            ulong n = 600851475143;
+            //ulong n = 600851475143;
             //long n = 13195;
             //Console.WriteLine(LargestFactor(n, SieveOfEratosthenes((ulong)n/2)));
             //Console.WriteLine(SieveOfEratosthenes(n));
@@ -58,9 +55,60 @@ namespace ProjectEulerPlayground
             //Console.WriteLine(ProjEulerP34());
             //Console.WriteLine(ProjEulerP36());
             //Console.WriteLine(ProjEulerP39());
-            Console.WriteLine(ProjEulerP40());
+            //Console.WriteLine(ProjEulerP40());
+            //Console.WriteLine(ProjEulerP45());
+            Console.WriteLine(ProjEulerP52());
             Console.ReadKey();
         }
+
+        static int ProjEulerP52()
+        {
+            for(int i=1; true; i++)
+            {
+                string istr = i.ToString();
+                bool isPermutedMultiples = true;
+                for(int j=2; j<=6; j++)
+                    if (!isPermutation(istr, (i * j).ToString()))
+                        isPermutedMultiples = false;
+                if (isPermutedMultiples)
+                    return i;
+            }
+        }
+
+        static long ProjEulerP45() // Bad solution, extremely memory intensive. Doesn't actually return correct answer, either
+        {
+            Dictionary<long, int> numbertrack = new Dictionary<long, int>(); // Keeps track of numbers found to be triangular, pentagonal, and hexagonal. The key "13" having a value of "1" means it is one of the three, "2" being two of the three, and "3" being that the key is triangular, pentagonal, AND hexagonal.
+            for(int n=144; !numbertrack.ContainsValue(3); n++) // Keep increasing n until we have a number that is triangular, pentagonal, and hexagonal.
+            {
+                long Trikey = TriNum(n); // Generate the given n numbers
+                long Pentagkey = PentagNum(n);
+                long Hexagkey = HexagNum(n);
+
+                if (numbertrack.ContainsKey(Trikey)) // Add the given n numbers to the dictionary
+                    numbertrack[Trikey]++;
+                else
+                    numbertrack.Add(Trikey, 1);
+                if (numbertrack.ContainsKey(Pentagkey))
+                    numbertrack[Pentagkey]++;
+                else
+                    numbertrack.Add(Pentagkey, 1);
+                if (numbertrack.ContainsKey(Hexagkey))
+                    numbertrack[Hexagkey]++;
+                else
+                    numbertrack.Add(Hexagkey, 1);
+            }
+            foreach (KeyValuePair<long, int> kp in numbertrack) // Find the number after 40755 that is triangular, pentagonal, and hexagonal.
+                if (kp.Value == 3)
+                    return kp.Key;
+            return -1; // Indicate error
+        }
+
+        static long TriNum(int n) // Generates the triangle number at given number n
+        { return n * (n + 1) / 2; }
+        static long PentagNum(int n) // Generates the pentagonal number at given number n
+        { return n * (3 * n - 1) / 2; }
+        static long HexagNum(int n) // Generates the hexagonal number at given number n
+        { return n * (2*n - 1); }
 
         static long ProjEulerP40()
         {
