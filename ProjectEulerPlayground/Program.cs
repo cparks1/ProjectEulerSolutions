@@ -57,8 +57,32 @@ namespace ProjectEulerPlayground
             //Console.WriteLine(ProjEulerP39());
             //Console.WriteLine(ProjEulerP40());
             //Console.WriteLine(ProjEulerP45());
-            Console.WriteLine(ProjEulerP52());
+            //Console.WriteLine(ProjEulerP52());
+            //Console.WriteLine(ProjEulerP55());
             Console.ReadKey();
+        }
+
+        static int ProjEulerP55()
+        {
+            int result = 0;
+            for (int i = 10; i < 10000; i++)
+                if (!isLychrel(i))
+                    result++;
+            return result;
+        }
+
+        static bool isLychrel(BigInteger n) // Taking input ulong because 9999 * 2 and then being multiplied by the resultant times to 50 times has a max value of 11 quintillion
+        {
+            BigInteger result = n + BigInteger.Parse(new string(n.ToString().Reverse().ToArray<char>())); // Add n by its reversal
+            if (isPalindrome(result.ToString()))
+                return true;
+            for (int i=1; i<50; i++) // Start at 1 because we've done one iteration already
+            {
+                result += BigInteger.Parse(new string(result.ToString().Reverse().ToArray<char>())); // Add the result by its reversal
+                if (isPalindrome(result.ToString()))
+                    return true;
+            }
+            return false;
         }
 
         static int ProjEulerP52()
