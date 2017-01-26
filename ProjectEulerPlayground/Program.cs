@@ -59,7 +59,40 @@ namespace ProjectEulerPlayground
             //Console.WriteLine(ProjEulerP45());
             //Console.WriteLine(ProjEulerP52());
             //Console.WriteLine(ProjEulerP55());
+            //ProjEulerP56();
+            //Console.WriteLine(ProjEulerP44());
             Console.ReadKey();
+        }
+
+        static int ProjEulerP44()
+        {
+            for(int i=2; true; i++)
+            {
+                int penti = PentN(i);
+                for(int j=1; j<i; j++)
+                {
+                    int pentj = PentN(j);
+                    if (isPentagonal(penti + pentj))
+                        if (isPentagonal(penti - pentj))
+                            return penti - pentj;
+                }
+            }
+        }
+
+        static bool isPentagonal(int n)
+        {
+            return ((Math.Sqrt(24 * n + 1) + 1) / 6) % 1 == 0;
+        }
+
+        static int PentN(int n)
+        { return n * (3 * n - 1) / 2; }
+
+        static void ProjEulerP56() // Not finished
+        {
+            int maxsum = 0;
+            foreach (char c in BigInteger.Pow(99, 99).ToString())
+                maxsum += byte.Parse(c.ToString());
+            Console.WriteLine(maxsum);
         }
 
         static int ProjEulerP55()
